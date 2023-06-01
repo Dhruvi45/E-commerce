@@ -5,12 +5,15 @@ import App from "./App";
 import { makeServer } from "./server";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rsuite/dist/rsuite-no-reset.min.css';
+import { BrowserRouter } from "react-router-dom";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );

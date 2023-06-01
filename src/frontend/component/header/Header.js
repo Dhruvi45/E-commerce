@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Container, Navbar,Form } from 'react-bootstrap';
-import { AiOutlineAlignRight } from 'react-icons/ai';
+import { Button, Container, Navbar, Form } from 'react-bootstrap';
 import './Header.css'
 export default function Header(props) {
     // const { toggleSidebar, setToggleSidebar } = props
@@ -8,11 +7,7 @@ export default function Header(props) {
     return (
         <Container className='pe-0 ps-0'>
             <Navbar expand="lg" variant="light" bg="light">
-                <Button
-                    // onClick={() => setToggleSidebar(!toggleSidebar)}
-                >
-                    <AiOutlineAlignRight />
-                </Button>
+
                 <Container>
                     <Navbar.Brand href="#">
                         <span className='title'>E-commerce</span>

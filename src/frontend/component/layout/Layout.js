@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Home from '../../pages/Home'
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import { Row, Col } from 'react-bootstrap'
 import ProductCard from '../product/ProductCard'
-export default function Layout() {
+export default function Layout(props) {
 
     return (
         <>
             <Row>
+                <Header />
                 <Col xs lg={3} className="pe-0" >
-                    <Sidebar  />
+                    <Sidebar />
                 </Col>
                 <Col xs lg={9} className='ps-0'>
-                    <Header />
-                    <Home />
-                    <ProductCard/>
+                    {props.children}
                 </Col>
             </Row>
         </>
