@@ -1,15 +1,19 @@
 import React from 'react'
 import Layout from '../component/layout/Layout'
-import { Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import ProductList from '../pages/productList/ProductList'
 import Home from '../pages/Home'
 import ProductCard from '../component/product/ProductCard'
 import Cart from '../pages/cart/Cart'
 
-export default function Routes() {
+export default function MyRoutes() {
+    console.log('Routes')
     return (
         <>
             <Layout >
+                {/* <Home /> */}
+                {/* <Routes>
+                </Routes> */}
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
