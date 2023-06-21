@@ -11,20 +11,39 @@ export const products = [
     title: "You Can WIN",
     author: "Shiv Khera",
     price: "5000",
-    categoryName: "non-fiction",
+    Language : 'English',
+    rating:4.9
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    title: "Rich Dad Poor Dad",
+    author: "Robert T. Kiyosaki",
+    price: "298",
+    Language : 'English',
+    rating:4.6
   },
   {
     _id: uuid(),
     title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    author: "Napoleon Hill",
+    price: "1350",
+    Language : 'English',
+    rating:4.4
+  },
+  {
+    _id: uuid(),
+    title: "The Silent Patient",
+    author: "Alex Michaelides",
+    price: "2121",
+    Language : 'English',
+    rating:4.5
+  },
+  {
+    _id: uuid(),
+    title: "The Silent Patient",
+    author: "Alex Michaelides",
+    price: "2121",
+    Language : 'English',
+    rating:4.5
   },
 ];

@@ -5,6 +5,7 @@ import { makeServer } from "./server";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import { createRoot } from 'react-dom/client';
+import 'react-toastify/dist/ReactToastify.css';
 // Call make Server
 makeServer();
 

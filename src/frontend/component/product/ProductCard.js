@@ -1,20 +1,24 @@
-import React,{useState, useEffect} from 'react'
-import axios from 'axios';
-export default function ProductCard() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    // Fetch products from the API
-    axios.get('/api/products')
-      .then(response => {
-        setProducts(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-      });
-  }, []);
-  console.log('products', products)
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import '../../assets/style/productCard.css'
+import { useNavigate } from 'react-router-dom'
+export default function ProductCard(props) {
+  const { product } = props
+  const nevigate = useNavigate()
   return (
-    <div>ProductCard</div>
+
+    <div className='productCard'>
+      <div>
+        <img src={require(`../../assets/images/${product.title}.jpg`)} alt={`${product.title}`}className='productImg' />
+      </div>
+      <div className='productDetail'>
+        <h1>{product.title}</h1>
+        <p><b>Prise: </b>{product.price}</p>
+        <p><b>Author: </b>{product.author}</p>
+        <p><b>Language: </b>{product.Language}</p>
+        <p><b>Rating: </b>{product.rating}</p>
+        <Button onClick={() => nevigate(`/product/${product._id}`)}>View</Button>
+      </div>
+    </div>
   )
 }

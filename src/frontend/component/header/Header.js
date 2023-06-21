@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Container, Navbar, Form } from 'react-bootstrap';
 import './Header.css'
 export default function Header(props) {
-    // const { toggleSidebar, setToggleSidebar } = props
+    
 
     return (
         <Container className='pe-0 ps-0'>
