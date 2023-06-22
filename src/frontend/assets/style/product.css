@@ -1,5 +1,16 @@
 img{
-    height:550px;
-    width: 418px;
+    height:500px;
+    width: 400px;
     padding: 12px;
+}
+.productDetails{
+margin-top: 50px;
+margin-left: 40px;
+}
+.rs-rate-md .rs-rate-character {
+    height: 30px !important;
+    width: 15px !important;
+}
+.rs-rate-md {
+    font-size: 20px !important;
 }
