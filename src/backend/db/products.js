@@ -12,7 +12,8 @@ export const products = [
     author: "Shiv Khera",
     price: "5000",
     Language: 'English',
-    rating: 4
+    rating: 4,
+    category: 'fiction'
   },
   {
     _id: uuid(),
@@ -20,7 +21,8 @@ export const products = [
     author: "Robert T. Kiyosaki",
     price: "298",
     Language: 'English',
-    rating: 3
+    rating: 3,
+    category: 'fiction'
   },
   {
     _id: uuid(),
@@ -28,7 +30,8 @@ export const products = [
     author: "Napoleon Hill",
     price: "1350",
     Language: 'English',
-    rating: 5
+    rating: 5,
+    category: 'horror'
   },
   {
     _id: uuid(),
@@ -36,7 +39,8 @@ export const products = [
     author: "Alex Michaelides",
     price: "2121",
     Language: 'English',
-    rating: 2
+    rating: 2,
+    category: 'non-fiction'
   },
   {
     _id: uuid(),
@@ -44,6 +48,7 @@ export const products = [
     author: "Alex Michaelides",
     price: "2121",
     Language: 'English',
-    rating: 1
+    rating: 1,
+    category: 'non-fiction'
   },
 ];

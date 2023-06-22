@@ -34,3 +34,19 @@ export const getProductHandler = function (schema, request) {
     );
   }
 };
+
+export const getProductByCategory = function (schema, request) {
+  const category = request.params.category;
+  try {
+    const product = schema.products.findBy({ _id: category });
+    return new Response(200, {}, { product });
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+}

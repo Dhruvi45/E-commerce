@@ -16,6 +16,7 @@ import {
 import {
   getAllProductsHandler,
   getProductHandler,
+  getProductByCategory
 } from "./backend/controllers/ProductController";
 import {
   addItemToWishlistHandler,
@@ -64,6 +65,8 @@ export function makeServer({ environment = "development" } = {}) {
       // products routes (public)
       this.get("/products", getAllProductsHandler.bind(this));
       this.get("/products/:productId", getProductHandler.bind(this));
+      this.get("/products/:category", getProductByCategory.bind(this));
+
 
       // categories routes (public)
       this.get("/categories", getAllCategoriesHandler.bind(this));

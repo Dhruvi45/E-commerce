@@ -1,48 +1,70 @@
-import React, { useState } from 'react'
-import { Sidenav, Nav } from 'rsuite';
-import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
-import GroupIcon from '@rsuite/icons/legacy/Group';
-import MagicIcon from '@rsuite/icons/legacy/Magic';
-import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
-import './Sidebar.css'
+import React, { useState, useEffect, useContext } from "react";
+import { Sidenav, Nav } from "rsuite";
+import { axiosGet } from "../../utils/Helper";
+import { toast } from "react-toastify";
+import "./Sidebar.css";
+import { filterContext } from "../layout/Layout";
 export default function Sidebar(props) {
-    // const { toggleSidebar } = props
+    const { filter, setFilter } = useContext(filterContext);
+    const [activeKey, setActiveKey] = useState("1");
+    const [categories, setCategories] = useState([]);
 
-    const [activeKey, setActiveKey] = useState('1');
+    const getCategoryList = async () => {
+        await axiosGet("/api/categories")
+            .then((res) => {
+                console.log("res", res);
+                console.log("res.data.categories", res.data.categories);
+                setCategories(res.data.categories);
+            })
+            .catch((error) => {
+                toast.error(error);
+            });
+    };
+
+    useEffect(() => {
+        getCategoryList();
+    }, []);
     return (
         <>
-            <Sidenav  className='sidebar'>
+            <Sidenav className="sidebar">
                 <Sidenav.Body>
                     <Nav activeKey={activeKey} onSelect={setActiveKey}>
-                        <Nav.Item eventKey="1" icon={<DashboardIcon />}>
-                            <span className='sidebarNav'> Dashboard</span>
-                        </Nav.Item>
-                        <Nav.Item eventKey="2" icon={<GroupIcon />}>
-                            <span className='sidebarNav'> User Group</span>
-                        </Nav.Item>
-                        <Nav.Menu placement="rightStart" eventKey="3" title="Advanced" icon={<MagicIcon />}>
+                        <Nav.Menu placement="rightStart" eventKey="3" title="Price">
                             <Nav.Item eventKey="3-1">Geo</Nav.Item>
                             <Nav.Item eventKey="3-2">Devices</Nav.Item>
                             <Nav.Item eventKey="3-3">Loyalty</Nav.Item>
                             <Nav.Item eventKey="3-4">Visit Depth</Nav.Item>
                         </Nav.Menu>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="4"
-                            title="Settings"
-                            icon={<GearCircleIcon />}
-                        >
-                            <Nav.Item eventKey="4-1">Applications</Nav.Item>
-                            <Nav.Item eventKey="4-2">Channels</Nav.Item>
-                            <Nav.Item eventKey="4-3">Versions</Nav.Item>
-                            <Nav.Menu eventKey="4-5" title="Custom Action">
-                                <Nav.Item eventKey="4-5-1">Action Name</Nav.Item>
-                                <Nav.Item eventKey="4-5-2">Action Params</Nav.Item>
-                            </Nav.Menu>
+                        <Nav.Menu placement="rightStart" eventKey="3" title="Rating">
+                            <Nav.Item eventKey="3-1">Geo</Nav.Item>
+                            <Nav.Item eventKey="3-2">Devices</Nav.Item>
+                            <Nav.Item eventKey="3-3">Loyalty</Nav.Item>
+                            <Nav.Item eventKey="3-4">Visit Depth</Nav.Item>
+                        </Nav.Menu>
+                        <Nav.Menu placement="rightStart" eventKey="4" title="Category">
+                            {categories &&
+                                categories.map((category, index) => {
+                                    return (
+                                        <Nav.Item
+                                            eventKey={`3-${index}`}
+                                            // onClick={() =>
+                                            //     setFilter((data) => {
+                                            //         return {
+                                            //             ...data,
+                                            //             category: category.categoryName,
+                                            //         };
+                                            //     })
+                                            // }
+                                        >
+
+                                            {category.categoryName}
+                                        </Nav.Item>
+                                    );
+                                })}
                         </Nav.Menu>
                     </Nav>
                 </Sidenav.Body>
             </Sidenav>
         </>
-    )
+    );
 }
